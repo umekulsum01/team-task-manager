@@ -15,7 +15,7 @@ app.use('/api/tasks', require('./routes/tasks'));
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
@@ -24,4 +24,4 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.log('❌ Error:', err));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`✅ Server running on port ${PORT}`));
