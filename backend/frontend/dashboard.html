@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>Team Task Manager</h2>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="projects.html">Projects</a>
+      <a href="tasks.html">Tasks</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 style="margin-bottom:20px">Welcome, <span id="username"></span>!</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3 id="total-tasks">0</h3>
+        <p>Total Tasks</p>
+      </div>
+      <div class="card">
+        <h3 id="done-tasks">0</h3>
+        <p>Completed Tasks</p>
+      </div>
+      <div class="card">
+        <h3 id="pending-tasks">0</h3>
+        <p>Pending Tasks</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>My Recent Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Project</th>
+            <th>Status</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody id="recent-tasks">
+          <tr><td colspan="4">No tasks yet!</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Show username from localStorage
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    document.getElementById('username').textContent = user.name || 'User';
+    checkAuth();
+    loadDashboard();
+  </script>
+</body>
+</html>
