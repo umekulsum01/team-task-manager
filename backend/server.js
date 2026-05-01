@@ -15,6 +15,10 @@ app.use('/api/tasks', require('./routes/tasks'));
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB Connected'))
   .catch(err => console.log('❌ Error:', err));
