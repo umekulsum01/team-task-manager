@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Task Manager - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1>Team Task Manager</h1>
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="showTab('login')">Login</button>
+        <button class="tab-btn" onclick="showTab('signup')">Signup</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login" class="tab-content active">
+        <input type="email" id="login-email" placeholder="Email" />
+        <input type="password" id="login-password" placeholder="Password" />
+        <button class="btn-primary" onclick="login()">Login</button>
+        <p id="login-msg" class="msg"></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup" class="tab-content">
+        <input type="text" id="signup-name" placeholder="Full Name" />
+        <input type="email" id="signup-email" placeholder="Email" />
+        <input type="password" id="signup-password" placeholder="Password" />
+        <select id="signup-role">
+          <option value="member">Member</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button class="btn-primary" onclick="signup()">Create Account</button>
+        <p id="signup-msg" class="msg"></p>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

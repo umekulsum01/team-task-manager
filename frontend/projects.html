@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>Team Task Manager</h2>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="projects.html">Projects</a>
+      <a href="tasks.html">Tasks</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Create Project Form (Admin Only) -->
+    <div class="form-section" id="create-project-section">
+      <h2>Create New Project</h2>
+      <input type="text" id="project-name" placeholder="Project Name" />
+      <textarea id="project-desc" placeholder="Project Description" rows="3"></textarea>
+      <select id="project-members" multiple style="height:100px">
+      </select>
+      <p style="font-size:12px;color:#999;margin-bottom:10px">Hold Ctrl to select multiple members</p>
+      <button class="btn-add" onclick="createProject()">Create Project</button>
+      <p id="project-msg" class="msg"></p>
+    </div>
+
+    <!-- Projects List -->
+    <div class="section">
+      <h2>All Projects</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Members</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="projects-list">
+          <tr><td colspan="4">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    checkAuth();
+    loadProjects();
+    loadUsersForSelect();
+  </script>
+</body>
+</html>
